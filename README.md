@@ -61,6 +61,7 @@ make
 ```
 
 * 使用LabelImg标注图像样本集
+![](images/annotation.png)
 
 * 下载预训练模型[darknet53.conv.74](https://pjreddie.com/media/files/darknet53.conv.74)
 ```bash
@@ -76,6 +77,7 @@ wget https://pjreddie.com/media/files/darknet53.conv.74
 ```bash
 ../darknet detector test cfg/voc.data cfg/yolov3.cfg weights/yolov3_final.weights test-images/IMG_9265.JPG
 ```
+![](images/prediction.png)
 
 ## 参考资料
 [YOLO: Real-Time Object Detection](https://pjreddie.com/darknet/yolo/)
