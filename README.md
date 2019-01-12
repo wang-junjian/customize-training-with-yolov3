@@ -61,6 +61,11 @@ make
 ```
 
 * 使用LabelImg标注图像样本集
+```bash
+python3 labelImg.py [图像目录] [标注名字文件] [标注目录]
+
+python3 labelImg.py /Users/wjj/GitHub/wang-junjian/customize-training-with-yolov3/open-close/images/ /Users/wjj/GitHub/wang-junjian/customize-training-with-yolov3/open-close/cfg/voc.names /Users/wjj/GitHub/wang-junjian/customize-training-with-yolov3/open-close/labels/
+```
 ![](images/annotation.png)
 
 * 下载预训练模型[darknet53.conv.74](https://pjreddie.com/media/files/darknet53.conv.74)
@@ -75,7 +80,7 @@ wget https://pjreddie.com/media/files/darknet53.conv.74
 
 * 图像预测
 ```bash
-../darknet detector test cfg/voc.data cfg/yolov3.cfg weights/yolov3_final.weights test-images/IMG_9265.JPG
+../darknet detector test cfg/voc.data cfg/yolov3.cfg weights/yolov3_final.weights test-images/IMG_9256.JPG
 ```
 ![](images/prediction.png)
 
