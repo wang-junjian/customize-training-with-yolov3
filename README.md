@@ -60,12 +60,6 @@ make
         └── IMG_9280.txt
 ```
 
-* 标注类型：yolo.names
-```txt
-close
-open
-```
-
 * 训练的样本：train.txt
 ```txt
 yolos/IMG_9255.JPG
@@ -76,6 +70,12 @@ yolos/IMG_9280.JPG
 * 验证的样本：valid.txt
 ```txt
 yolos/IMG_9263.JPG
+```
+
+* 标注类型：yolo.names
+```txt
+close
+open
 ```
 
 * 配置文件：yolo.data
@@ -89,7 +89,7 @@ backup = backup
 
 * 修改YOLO神经网络文件：yolov3.cfg
 ```txt
-603行：filters=21
+603行：filters=21    # (classes + 5)*3
 610行：classes=2
 689行：filters=21
 696行：classes=2
@@ -101,7 +101,7 @@ backup = backup
 ```bash
 python3 labelImg.py [图像目录] [标注名字文件] [标注目录]
 
-python3 labelImg.py /Users/wjj/GitHub/wang-junjian/customize-training-with-yolov3/open-close/images/ /Users/wjj/GitHub/wang-junjian/customize-training-with-yolov3/open-close/cfg/voc.names /Users/wjj/GitHub/wang-junjian/customize-training-with-yolov3/open-close/labels/
+python3 labelImg.py open-close/yolos/ open-close/cfg/yolo.names
 ```
 ![](images/annotation.png)
 
@@ -113,14 +113,19 @@ wget https://pjreddie.com/media/files/darknet53.conv.74
 ## 训练和预测
 * 样本训练
 ```bash
-../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
+../darknet detector train cfg/yolo.data cfg/yolov3.cfg ../darknet53.conv.74
 ```
 
 * 图像预测
 ```bash
-../darknet detector test cfg/voc.data cfg/yolov3.cfg weights/yolov3_final.weights test-images/IMG_9256.JPG
+../darknet detector test cfg/yolo.data cfg/yolov3.cfg weights/yolov3_final.weights test-images/IMG_9256.JPG
 ```
 ![](images/prediction.png)
 
 ## 参考资料
-[YOLO: Real-Time Object Detection](https://pjreddie.com/darknet/yolo/)
+* [YOLO: Real-Time Object Detection](https://pjreddie.com/darknet/yolo/)
+* [建立自己的YOLO辨識模型 – 以柑橘辨識為例](https://chtseng.wordpress.com/2018/09/01/建立自己的yolo辨識模型-以柑橘辨識為例/)
+* [How to train YOLOv3 to detect custom objects](https://medium.com/@manivannan_data/how-to-train-yolov3-to-detect-custom-objects-ccbcafeb13d2)
+* [Create a custom dataset (YOLO)](https://github.com/WalkingMachine/sara_wiki/wiki/Create-a-custom-dataset-(YOLO))
+* [开关柜上保护跳闸压板干什么用的](https://zhidao.baidu.com/question/1798022205278568227.html)
+* [开关柜门上"压板"的作用是什么？](https://zhidao.baidu.com/question/652793951613138805.html)
