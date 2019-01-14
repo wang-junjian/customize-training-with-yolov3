@@ -7,7 +7,7 @@ cd darknet/
 make
 ```
 
-## 自定义训练工程
+## 创建工程
 * 工程目录结构
 ```txt
 ├── darknet53.conv.74　　　　　　基于imagenet的预训练模型
@@ -16,8 +16,8 @@ make
     ├── cfg　　　　　　　　　　　　配置目录
     │   ├── train.txt　　　　　　存储用于训练的图像路径
     │   ├── valid.txt　　　　　　存储用于验证的图像路径
-    │   ├── voc.data　　　　　　 配置文件
-    │   ├── voc.names　　　　　　标签名
+    │   ├── yolo.data　　　　　　 配置文件
+    │   ├── yolo.names　　　　　　标签名
     │   └── yolov3.cfg　　　　　 YOLOv3神经网络文件
     ├── data
     │   └── labels　　　　　　　　预测时用于显示标签名字
@@ -60,6 +60,43 @@ make
         └── IMG_9280.txt
 ```
 
+* 标注类型：yolo.names
+```txt
+close
+open
+```
+
+* 训练的样本：train.txt
+```txt
+yolos/IMG_9255.JPG
+yolos/IMG_9266.JPG
+yolos/IMG_9280.JPG
+```
+
+* 验证的样本：valid.txt
+```txt
+yolos/IMG_9263.JPG
+```
+
+* 配置文件：yolo.data
+```txt
+classes= 2
+train  = cfg/train.txt
+valid  = cfg/valid.txt
+names = cfg/yolo.names
+backup = backup
+```
+
+* 修改YOLO神经网络文件：yolov3.cfg
+```txt
+603行：filters=21
+610行：classes=2
+689行：filters=21
+696行：classes=2
+776行：filters=21
+783行：classes=2
+```
+
 * 使用LabelImg标注图像样本集
 ```bash
 python3 labelImg.py [图像目录] [标注名字文件] [标注目录]
@@ -73,6 +110,7 @@ python3 labelImg.py /Users/wjj/GitHub/wang-junjian/customize-training-with-yolov
 wget https://pjreddie.com/media/files/darknet53.conv.74
 ```
 
+## 训练和预测
 * 样本训练
 ```bash
 ../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
