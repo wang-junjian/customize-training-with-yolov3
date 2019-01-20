@@ -124,8 +124,10 @@ wget https://pjreddie.com/media/files/darknet53.conv.74
 
 ## 参考资料
 * [YOLO: Real-Time Object Detection](https://pjreddie.com/darknet/yolo/)
+* [Training YOLOv3 : Deep Learning based Custom Object Detector](https://www.learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/)
 * [建立自己的YOLO辨識模型 – 以柑橘辨識為例](https://chtseng.wordpress.com/2018/09/01/建立自己的yolo辨識模型-以柑橘辨識為例/)
 * [How to train YOLOv3 to detect custom objects](https://medium.com/@manivannan_data/how-to-train-yolov3-to-detect-custom-objects-ccbcafeb13d2)
 * [Create a custom dataset (YOLO)](https://github.com/WalkingMachine/sara_wiki/wiki/Create-a-custom-dataset-(YOLO))
+* [yoloV3参数理解及注释](https://blog.csdn.net/qq_33485434/article/details/80907040)
 * [开关柜上保护跳闸压板干什么用的](https://zhidao.baidu.com/question/1798022205278568227.html)
 * [开关柜门上"压板"的作用是什么？](https://zhidao.baidu.com/question/652793951613138805.html)
