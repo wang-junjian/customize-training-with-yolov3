@@ -16,8 +16,8 @@ make
     ├── cfg　　　　　　　　　　　　配置目录
     │   ├── train.txt　　　　　　存储用于训练的图像路径
     │   ├── valid.txt　　　　　　存储用于验证的图像路径
-    │   ├── yolo.data　　　　　　 配置文件
-    │   ├── yolo.names　　　　　　标签名
+    │   ├── voc.data　　　　　　 配置文件
+    │   ├── voc.names　　　　　　标签名
     │   └── yolov3.cfg　　　　　 YOLOv3神经网络文件
     ├── data
     │   └── labels　　　　　　　　预测时用于显示标签名字
@@ -72,18 +72,18 @@ yolos/IMG_9280.JPG
 yolos/IMG_9263.JPG
 ```
 
-* 标注类型：yolo.names
+* 标注类型：voc.names
 ```txt
 close
 open
 ```
 
-* 配置文件：yolo.data
+* 配置文件：voc.data
 ```txt
 classes= 2
 train  = cfg/train.txt
 valid  = cfg/valid.txt
-names = cfg/yolo.names
+names = cfg/voc.names
 backup = backup
 ```
 
@@ -113,12 +113,12 @@ wget https://pjreddie.com/media/files/darknet53.conv.74
 ## 训练和预测
 * 样本训练
 ```bash
-../darknet detector train cfg/yolo.data cfg/yolov3.cfg ../darknet53.conv.74
+../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
 ```
 
 * 图像预测
 ```bash
-../darknet detector test cfg/yolo.data cfg/yolov3.cfg weights/yolov3_final.weights test-images/IMG_9256.JPG
+../darknet detector test cfg/voc.data cfg/yolov3.cfg weights/yolov3_final.weights test-images/IMG_9256.JPG
 ```
 ![](images/prediction.png)
 
